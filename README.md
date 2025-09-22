@@ -1,4 +1,4 @@
-This is my slot machine.
+This is my slot machine (in Java).
 
 THE GAME:
 In every game, you spin five (given) reels. Every entry of every reel is one of the eight symbols 
