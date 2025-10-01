@@ -8,12 +8,10 @@ symbol. In particular, if there are n-consecutive reels with a common symbol, th
 ways you can go from the left-most to the right-most reel and every path gives you a score.
 
 ## HOW TO PLAY:
-Simply run Main.java. It prints the slot screen (the 4x5 matrix) with the symbols and the winning score of this spin.
-Moreover, in Main.java you can find three commented sections:
-    1) lines 19-27. This section contains the for cycle that checks the slot RTP, which is 0.961 (the former one was 0.98).
-    2) lines 30-51. This section computed the "statistic matrix" of the slot. The matrix indicates how frequently a particular combination of a given symbol appears in the slot machine.
-    3) lines 53-88. Starting from the statistical matrix, I computed that one can obtain RTP = 0.96 if the payout for a 3OAK of L4 is changed from 0.1 to 0.02.
-    I used this section to perform a theoretical double-check of the RTP, based on the statistical matrix and the new pricing criterion."
+Simply run *Main.java*. It prints the slot screen (the 4x5 matrix) with the symbols and the winning score of this spin.
+
+In the main has a commented block (lines 27-51). This block contains how to compute the statistic matrix of
+the slot machine. This matrix is used for the theoretical computation of RTP.
 
 ## THE CLASSES
 ### NewReels.java
@@ -59,3 +57,12 @@ is needed to compute the statistic matrix.
 This class contains the functions for printing the matrices.
 We just report the function *printMatrixTableIntReels* that takes as an input the 4x5 integer matrix corresponding to the
 slot screen and prints the 4x5 matrix (in symbols H1...L4) with the corresponding winning score.
+
+### RTP.java
+
+This class contains two classes.
+The function *returnToPlayerCheck* asks an integer n between 1 and 100M and spins the slot n times. It returns the
+mean of the winning score of the runs.
+The function *changeOfTheReturnToPlayer* ask for a P% greater than 92% and says what you have to change in order to have the
+return to player equal to P%. Moreover, this function checks that this change produces a RTP equal to what we need and it does that
+by spinning the slot 10M times.
